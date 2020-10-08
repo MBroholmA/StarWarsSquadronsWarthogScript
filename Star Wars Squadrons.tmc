@@ -1,4 +1,6 @@
 //TARGET script for Star Wars Squadrons
+//By @MBroholmA - October 2020
+//Version 1.0
 
 include "target.tmh"
 
