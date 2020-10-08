@@ -9,6 +9,7 @@ By @MBroholmA
 - Use the INCR/DECR lever to add yaw-on-roll effect. Middle = 0 = no effect. The further from the middle the longer the yaw will be applied.
 - Use the AUTOPILOT switch on the throttle to mix the axis on the rudder pedals differently
 - Binds the JOYX/JOYX axes to DX_XROT_AXIS/DX_YROT_AXIS - irrelevant now that this bug was patched
+- Introduces a dead zone around 50% throttle for maximum turn rate
 
 ## Requirements ##
 - TARGET software 3.0.18.328
