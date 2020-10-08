@@ -1,4 +1,4 @@
-# StarWarsWarthogScript
+# Star Wars Squadrons Warthog Script
 Thrustmaster Warthog Script for Star Wars Squadrons
 
 By @MBroholmA
