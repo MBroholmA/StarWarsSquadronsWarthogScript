@@ -6,7 +6,7 @@ include "target.tmh"
 
 
 int edgeDeadZone = 0;
-int centerDeadZone = 1;
+int centerDeadZone = 0;
 
 int debug = 0;
 
@@ -30,11 +30,10 @@ int main()
 	SetKBLayout(KB_ENG);
 	SetShiftButton(0, 0, 0, 0, 0, 0);
 	
-	//Map joystick to X/Y rotate axis to handle dead zone issues
-    MapAxis(&Joystick, JOYX, DX_XROT_AXIS, AXIS_NORMAL, MAP_ABSOLUTE);
-    SetSCurve(&Joystick, JOYX, edgeDeadZone, centerDeadZone, edgeDeadZone, 3, 0);
-	MapAxis(&Joystick, JOYY, DX_YROT_AXIS, AXIS_NORMAL, MAP_ABSOLUTE);
-	SetSCurve(&Joystick, JOYY, edgeDeadZone, centerDeadZone, edgeDeadZone, 3, 0);
+	MapAxis(&Joystick, JOYX, DX_X_AXIS, AXIS_NORMAL, MAP_ABSOLUTE);
+	SetSCurve(&Joystick, JOYX, edgeDeadZone, centerDeadZone, edgeDeadZone, 2, 0);
+	MapAxis(&Joystick, JOYY, DX_Y_AXIS, AXIS_NORMAL, MAP_ABSOLUTE);
+	SetSCurve(&Joystick, JOYY, edgeDeadZone, centerDeadZone, edgeDeadZone, 2, 0);
 
 	MapAxis(&Throttle, THR_RIGHT, DX_THROTTLE_AXIS, AXIS_NORMAL, MAP_ABSOLUTE);
 	SetCustomCurve(&Throttle, THR_RIGHT, LIST(0,0, 45,50, 55,50, 100,100));//create a deadzone in the middle of the axis, between 45% and 55%. 
@@ -124,6 +123,7 @@ int EventHandle(int type, alias o, int x) {
 	
 	if (((&o == &Joystick) & (x == JOYX)) | ((&o == &Throttle) & (x == THR_FC))) {
        OutputRudderAxes(&TFRPRudder, TRUDDER, TRPLEFT, TRPRIGHT, TRUDDER);
+       eventHandled = Throttle[EFROVER];
     }
 	else if(&o == &TFRPRudder) {
         eventHandled = OutputRudderAxes(&o, x, TRPLEFT, TRPRIGHT, TRUDDER);

@@ -1,0 +1,5 @@
+1.0.0 - Initial release
+1.0.1 - 
+	Remapping needed
+	1) Joystick axes now maps to default JOYX and JOYX axes instead of rotate
+	2) Fuel Flow Right switch can now be set to OVERRIDE to temporary disable the X axis in order to be able to map the Z axis if no rudder is present
